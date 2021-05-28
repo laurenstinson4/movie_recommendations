@@ -1,0 +1,131 @@
+*{margin:0;padding:0;}
+body{font-family: 'Slabo 27px', serif;background:#000;}
+.bg{position:relative;z-index:1;}
+.bg img{
+  display:block;
+  width:100%; height:auto;
+}
+.bg h1{
+  position:absolute;
+  top:33%;left:0;
+  width:100%;
+  font-size:100px;
+  text-align:center;
+  color:#fff
+}
+.cont{
+  position:relative;
+  z-index:2;
+  background:rgba(0,0,0,0.9);
+  font-size:27px;
+  color:#fff;
+  padding:5%;
+}
+.cont *{
+  max-width:900px;
+  margin:5% auto;
+}
+
+/* ----NAV START---- */
+
+.navbar {
+  padding: 5px;
+  margin: 0;
+  background: rgb(140, 8, 21);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.navbar-brand{
+  margin-left: 20px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+/* This CSS styles the olympic icon in the navbar */
+.nav-olympic {
+  position: absolute;
+  bottom: 5px;
+  left: 115px;
+  width: 35px;
+  color: white;
+}
+
+/* Logo hover state */
+#logo:hover {
+  /* Visual */
+  opacity: 0.7;
+}
+
+.navbar-right-custom {
+  /* Box-model */
+  padding-top: 6px;
+  padding-right: 20px;
+
+  /* Typography */
+  font-weight: bold;
+}
+
+/* Nav element hover state */
+.navbar-default .navbar-nav > li > 
+a:link {
+  color: white;
+}
+a:visited {
+  color: white;
+}
+a:hover {
+  color: white;
+}
+
+/* Media query for nav */
+@media only screen and (max-width: 767px) {
+  .navbar-header {
+    background-color: #4aaaa5;
+  }
+
+  #logo {
+    width: 100%;
+
+    /* Box-model */
+    height: 60px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+
+    /* Positioning */
+    margin-left: 0;
+    font-family: Georgia, Times, "Times New Roman", serif;
+
+    /* Typography */
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+
+    /* Visual */
+    background: #4aaaa5;
+  }
+}
+
+/* -----NAV END---- */
+
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: none;
+  color: #000000;
+  text-align: center;
+  font-size: 28px;
+  font-weight:normal;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left: 470px;
+  margin-bottom: 50px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s
+}
