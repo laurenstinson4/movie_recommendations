@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  {% if t=='s' %}
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <h3 style="color:rgb(0, 102, 255)">Sorry! This movie is not in our database. Please try again with a different movie name</h3>
+  </div>
+
+  {% else %}
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <h1 style="color:rgb(0, 102, 255)">"{{movie}}" is a great choice.</h1>
+    <h3 style="color:rgb(0, 102, 255)">Here are some more like this</h3>
+  </div>
+
+    <ul class="list-group list-group-flush">
+      {% for title in r %}
+        <li class="list-group-item" style="color:rgb(0, 179, 0)"><strong>{{title|capitalize}}</strong></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+{% endblock %}
