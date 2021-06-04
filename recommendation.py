@@ -5,6 +5,7 @@ import boto3
 from flask import Flask, render_template, request
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+import pickle
 
 s3 = boto3.resource(service_name = 's3',
                      region_name = 'us-east-2',
@@ -21,6 +22,8 @@ cosine_sim_df = pd.DataFrame(cosine_sim, index=movies['title'], columns=movies['
 titles = movies['title']
 indices = pd.Series(movies.index, index=movies['title']).drop_duplicates()
 
+
+
 # Function that get movie recommendations based on the cosine similarity score of movie genres
 
 def genre_recommendations(title):
@@ -35,14 +38,13 @@ def genre_recommendations(title):
 
 
 
-# Function that get movie recommendations based on the cosine similarity score of movie genres
 
 
 
 
 app = Flask(__name__)
 
-@app.route("/home")
+@app.route("/")
 def home():
     return render_template("index.html")
 
