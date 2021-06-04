@@ -1,4 +1,4 @@
-web: gunicorn recommendation:app
+web: gunicorn run:app
 
 
 
