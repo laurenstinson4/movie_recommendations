@@ -12,10 +12,10 @@
 
     <!-- NAV BAR -->
     <div class="topnav">
-      <a href="index.html">Home</a>
-      <a href="home.html">Get a Recommendation</a>
-      <a href="contact.html">Contact</a>
-    </div>
+      <a href="/">Home</a>
+      <a href="recommender">Get a Recommendation</a>
+      <a href="contact">Contact</a>
+  </div>
   <!-- End of navbar -->
 
 
@@ -26,10 +26,10 @@
 
       <div class="jumbotron">
         <div class="shadow p-3 mb-5 bg-white rounded">
-          <h1 style="color:white">Welcome to the Movie Recommender</h1>
+          <h1 style="color:black">Welcome to the Movie Recommender</h1>
           <h3 style="color:rgb(140, 8, 21)">Enter a movie you enjoy to get similar recommendations.</h3>
 
-          <form action="{{url_for('recommend')}}">
+          <form action="{{url_for('results')}}">
             <input type="text" name="movie" class="form-control" placeholder="Movie name here">
             <br>
             <input type="submit" class="btn btn-info" value="Enter">

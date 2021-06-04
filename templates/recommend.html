@@ -9,9 +9,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
   <body>
+
+    <!-- NAV BAR -->
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="recommender">Get a Recommendation</a>
+      <a href="contact">Contact</a>
+  </div>
+  <!-- End of navbar -->
+
+
     <div class="container">
     <nav class="navbar navbar-light bg-light">
       <h3><a style="color:rgb(140, 8, 21)" class="nav-link" href="{{url_for('home')}}">Get Another Recommendation</a></h3>
+      <br>
+      <br>
     </nav>
 
       <div class="jumbotron">
@@ -23,12 +35,12 @@
         {% else %}
       <div class="shadow p-3 mb-5 bg-white rounded">
         <h1 style="color:rgb(140, 8, 21)">"{{movie}}" is a great choice.</h1>
-        <h3 style="color:white">Here are some more like this</h3>
+        <h3 style="color:black">Here are some more like this</h3>
       </div>
 
         <ul class="list-group list-group-flush">
           {% for title in r %}
-            <li class="list-group-item" style="color:white"><strong>{{title|capitalize}}</strong></li>
+            <li class="list-group-item" style="color:black"><strong>{{title|capitalize}}</strong></li>
             {% endfor %}
         </ul>
       {% endif %}
