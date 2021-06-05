@@ -121,12 +121,16 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-@app.route("/recommender")
-def recommender():
-    return render_template("recommender.html")
+@app.route("/genre_recommender")
+def genre_recommender():
+    return render_template("genre_recommender.html")
+
+@app.route("/rating_recommender")
+def rating_recommender():
+    return render_template("rating_recommender.html")
 
 @app.route("/genre_results")
-def results():
+def genre_results():
     movie = request.args.get('movie')
     r = genre_recommendations(movie)
     movie = movie.upper()
@@ -136,7 +140,7 @@ def results():
         return render_template('genre_results.html',movie=movie,r=r,t='t')
 
 @app.route("/rating_results")
-def rating_recommend():
+def rating_results():
     movie = request.args.get('movie')
     r = rating_recommendations(movie)
     movie = movie.upper()
