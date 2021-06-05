@@ -12,14 +12,14 @@ from sklearn.neighbors import NearestNeighbors
 
 
 ###############################################################################################
-s3 = boto3.resource(service_name = 's3',
-                     region_name = 'us-east-2',
-                    aws_access_key_id= 'AKIA2EZZKSXVU7FABPQG',
-                    aws_secret_access_key='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')
-movie_obj = s3.Bucket('movierecommendationsystemapp').Object('movies.csv').get()
-ratings_obj = s3.Bucket('movierecommendationsystemapp').Object('ratings.csv').get()
+#s3 = boto3.resource(service_name = 's3',
+#                     region_name = 'us-east-2',
+#                    aws_access_key_id= 'AKIA2EZZKSXVU7FABPQG',
+#                    aws_secret_access_key='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')
+#movie_obj = s3.Bucket('movierecommendationsystemapp').Object('movies.csv').get()
+#ratings_obj = s3.Bucket('movierecommendationsystemapp').Object('ratings.csv').get()
 
-movies = pd.read_csv(movie_obj['Body'])
+movies = pd.read_csv('movies.csv')           #movie_obj['Body'])
 tf = TfidfVectorizer(analyzer='word',ngram_range=(1, 2),min_df=0, stop_words='english')
 tfidf_matrix = tf.fit_transform(movies['genres'])
 tfidf_matrix.shape
@@ -46,10 +46,10 @@ def genre_recommendations(title):
 ########################################################################################################
 #Ratings based Recommendation Code starts here
 ########################################################################################################
-movies_csv_url = 'https://gt-parrothunters-finalproject.s3.us-east-2.amazonaws.com/movies.csv'
+movies_csv_url = 'movies.csv' #'https://gt-parrothunters-finalproject.s3.us-east-2.amazonaws.com/movies.csv'
 df_movies = pd.read_csv(movies_csv_url)
 
-ratings_csv_url = 'https://gt-parrothunters-finalproject.s3.us-east-2.amazonaws.com/ratings.csv'
+ratings_csv_url = 'ratings.csv' #'https://gt-parrothunters-finalproject.s3.us-east-2.amazonaws.com/ratings.csv'
 df_ratings = pd.read_csv(ratings_csv_url)
 
 #Filtering Movies and Ratings (won't need if csv is filtered)
