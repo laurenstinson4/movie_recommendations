@@ -20,21 +20,30 @@
 
 
     <div class="container">
-    <!-- <nav class="navbar navbar-light bg-light">
-      <h3><a style="color:rgb(140, 8, 21)" class="nav-link" href="{{url_for('home')}}">Get Another Recommendation</a></h3>
-    </nav> -->
+    <nav class="navbar navbar-light bg-light">
+      <h3><a style="color:rgb(140, 8, 21)" class="nav-link" href="{{url_for('recommender')}}">Get Another Recommendation</a></h3>
+      <br>
+      <br>
+    </nav>
 
       <div class="jumbotron">
+        {% if t=='s' %}
         <div class="shadow p-3 mb-5 bg-white rounded">
-          <h1 style="color:black">Welcome to the Movie Recommender</h1>
-          <h3 style="color:rgb(140, 8, 21)">Enter a movie you enjoy to get similar recommendations.</h3>
-
-          <form action="{{url_for('results')}}">
-            <input type="text" name="movie" class="form-control" placeholder="Movie name here">
-            <br>
-            <input type="submit" class="btn btn-info" value="Enter">
-          </form>
+          <h3 style="color:rgb(140, 8, 21)">Sorry! This movie is not in our database. Please try again with a different movie name</h3>
         </div>
+
+        {% else %}
+      <div class="shadow p-3 mb-5 bg-white rounded">
+        <h1 style="color:rgb(140, 8, 21)">"{{movie}}" is a great choice.</h1>
+        <h3 style="color:black">Here are some more like this</h3>
+      </div>
+
+        <ul class="list-group list-group-flush">
+          {% for title in r %}
+            <li class="list-group-item" style="color:black"><strong>{{title|capitalize}}</strong></li>
+            {% endfor %}
+        </ul>
+      {% endif %}
       </div>
     </div>
   </body>
